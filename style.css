@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'BadFace';
+    src: url('BadScript-Regular.ttf') format('truetype');
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'BadFace';
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /*#de6262 → #ffb88c*/
+    background:linear-gradient(90deg,#de6262,#ffb88c);
+}
+.card{
+    position: relative;
+    width: 600px;
+    height: 800px;
+    background: #fff;
+    z-index: 1;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    box-shadow: 10px 20px 40px rgba(0,0,0,0.25);
+} 
+.card .details{
+    position: absolute;
+    top: 0;
+    left:0;
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .details .content{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+}
+.card .details .content h2{
+    font-size: 45px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 2em;
+}
+.card .details .content h2 span{
+    font-size: 0.8em;
+}
+.card .imgBox{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    background: #000;
+    transition: 1s;
+    z-index: 1;
+}
+.card:hover{
+    transform: translateX(50%);
+}
+.card:hover .imgBox{
+    transform: rotateY(-180deg);
+}
+.card .imgBox img{
+    backface-visibility: hidden;
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:fill;
+}
+.card .imgBox img:nth-child(2){
+    transform: rotateY(180deg);
+}
